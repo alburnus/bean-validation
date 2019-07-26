@@ -8,8 +8,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.groups.Default;
 import java.util.List;
-import java.util.UUID;
 
 @RestController
 public class TeamResource {
@@ -21,13 +21,12 @@ public class TeamResource {
     }
 
     @PostMapping(value = "/teams")
-    public ResponseEntity<Team> save(@Validated(InsertValidationGroup.class) @RequestBody Team team) {
-        team.setId(UUID.randomUUID().getMostSignificantBits());
+    public ResponseEntity<Team> save(@Validated({InsertValidationGroup.class, Default.class}) @RequestBody Team team) {
         return ResponseEntity.ok(teamRepository.save(team));
     }
 
     @PutMapping(value = "/teams")
-    public ResponseEntity<Team> update(@Validated(UpdateValidationGroup.class) @RequestBody Team team) {
+    public ResponseEntity<Team> update(@Validated({UpdateValidationGroup.class, Default.class}) @RequestBody Team team) {
         return ResponseEntity.ok(teamRepository.save(team));
     }
 

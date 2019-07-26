@@ -9,7 +9,7 @@ import java.lang.annotation.*;
 @Target({ElementType.METHOD, ElementType.FIELD})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface TeamNameUniqueness {
-    String message() default "Invalid phone number";
+    String message() default "Team name need to be unique";
 
     Class<?>[] groups() default {};
 
