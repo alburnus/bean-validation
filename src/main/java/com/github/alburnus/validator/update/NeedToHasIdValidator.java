@@ -1,6 +1,5 @@
 package com.github.alburnus.validator.update;
 
-import com.github.alburnus.validator.update.NeedToHasId;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.validation.ConstraintValidator;
